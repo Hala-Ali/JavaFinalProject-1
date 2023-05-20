@@ -8,21 +8,18 @@ import java.util.Map;
 
 public class Student
     extends Person
-    implements Evaluation
-{
+    implements Evaluation {
     private double average;
 
     private final List<Course> courses = new ArrayList<>();
 
     private final Map<String, Course> approvedCourses = new HashMap<>();
 
-    public Student( String id, String name, String email, Date birthDate )
-    {
-        super( id, name, email, birthDate );
+    public Student(String id, String name, String email, Date birthDate) {
+        super(id, name, email, birthDate);
     }
 
-    public void enrollToCourse( Course course )
-    {
+    public void enrollToCourse(Course course) {
         //TODO implement this method
         // Check if student is enrolled course
         // if its true return student is enrolled
@@ -31,24 +28,22 @@ public class Student
         // add course argument to cources instant field
         // else if print out student already enrolled
         //else course is not found
-        if(!isAttendingCourse(course.getCode())){
+        if (!isAttendingCourse(course.getCode())) {
             courses.add(course);
         }
     }
 
-    public void registerApprovedCourse( Course course )
-    {
-        approvedCourses.put( course.getCode(), course );
+    public void registerApprovedCourse(Course course) {
+        approvedCourses.put(course.getCode(), course);
     }
 
 
-    public boolean isAttendingCourse( String courseCode )
-    {
+    public boolean isAttendingCourse(String courseCode) {
         //TODO implement this method
         //boolean isAttendingCourse = false;
-        for(Course course:courses){
-            if(course.getCode().equals(courseCode)){
-                System.out.println("Student already enrolled in course " + courseCode +"!");
+        for (Course course : courses) {
+            if (course.getCode().equals(courseCode)) {
+                System.out.println("Student already enrolled in course " + courseCode + "!");
                 return true;
             }
         }
@@ -57,14 +52,12 @@ public class Student
     }
 
     @Override
-    public double getAverage()
-    {
+    public double getAverage() {
         return average;
     }
 
     @Override
-    public String toString()
-    {
-        return "Student {" + super.toString() + "}";
+    public String toString() {
+        return "Student {" + super.toString() + ", " + courses + "}";
     }
 }
